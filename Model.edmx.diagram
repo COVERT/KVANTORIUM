@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="70a9174719b54a6c9456e822323b23ed" Name="Diagram1">
-        <EntityTypeShape EntityType="KVANTORIUMModel.KURS" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+      <Diagram DiagramId="0112ff47f49148dd997acecbcfedb87e" Name="Diagram1">
+        <EntityTypeShape EntityType="KVANTORIUMModel.KURS" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="KVANTORIUMModel.PREPOD" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KVANTORIUMModel.USINIK" Width="1.5" PointX="5.125" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KVANTORIUMModel.USINIK" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="KVANTORIUMModel.FK_KURS_PREPOD" ManuallyRouted="false" />
-        <AssociationConnector Association="KVANTORIUMModel.FK_KURS_USINIK" />
+        <AssociationConnector Association="KVANTORIUMModel.FK_KURS_USINIK" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

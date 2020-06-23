@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KVANTORIUM
 {
-    public partial class USINIK: Form
+    public partial class Usunik : Form
     {
-        public USINIK()
+        public Usunik()
         {
             InitializeComponent();
         }

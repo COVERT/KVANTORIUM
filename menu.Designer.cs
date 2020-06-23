@@ -32,6 +32,8 @@
             this.USINIK = new System.Windows.Forms.Button();
             this.KURS = new System.Windows.Forms.Button();
             this.INFO = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -74,18 +76,30 @@
             this.INFO.UseVisualStyleBackColor = true;
             this.INFO.Click += new System.EventHandler(this.INFO_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KVANTORIUM.Properties.Resources.dfsfsdsdf;
+            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(205, 326);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.INFO);
             this.Controls.Add(this.KURS);
             this.Controls.Add(this.USINIK);
             this.Controls.Add(this.button1);
             this.Name = "menu";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -96,6 +110,7 @@
         private System.Windows.Forms.Button USINIK;
         private System.Windows.Forms.Button KURS;
         private System.Windows.Forms.Button INFO;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

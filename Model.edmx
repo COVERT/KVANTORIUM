@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище KVANTORIUMModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище KVANTORIUMModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="KURS">
           <Key>
             <PropertyRef Name="Id" />
@@ -70,7 +70,8 @@
             <End Role="KURS" EntitySet="KURS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KVANTORIUMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -82,7 +83,7 @@
           <Property Name="IdUSINIK" Type="Int32" Nullable="false" />
           <Property Name="IdPREPOD" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PREPOD" Relationship="Self.FK_KURS_PREPOD" FromRole="KURS" ToRole="PREPOD" />
-          <NavigationProperty Name="USINIK" Relationship="KVANTORIUMModel.FK_KURS_USINIK" FromRole="KURS" ToRole="USINIK" />
+          <NavigationProperty Name="USINIK" Relationship="Self.FK_KURS_USINIK" FromRole="KURS" ToRole="USINIK" />
         </EntityType>
         <EntityType Name="PREPOD">
           <Key>
@@ -104,7 +105,7 @@
           <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Data" Type="Int32" Nullable="false" />
           <Property Name="Nomer" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="KURS" Relationship="KVANTORIUMModel.FK_KURS_USINIK" FromRole="USINIK" ToRole="KURS" />
+          <NavigationProperty Name="KURS" Relationship="Self.FK_KURS_USINIK" FromRole="USINIK" ToRole="KURS" />
         </EntityType>
         <Association Name="FK_KURS_PREPOD">
           <End Role="PREPOD" Type="Self.PREPOD" Multiplicity="1" />
@@ -118,22 +119,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KVANTORIUMEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="KURS" EntityType="Self.KURS" />
-          <EntitySet Name="PREPOD" EntityType="Self.PREPOD" />
-          <EntitySet Name="USINIK" EntityType="Self.USINIK" />
-          <AssociationSet Name="FK_KURS_PREPOD" Association="Self.FK_KURS_PREPOD">
-            <End Role="PREPOD" EntitySet="PREPOD" />
-            <End Role="KURS" EntitySet="KURS" />
-          </AssociationSet>
-          <AssociationSet Name="FK_KURS_USINIK" Association="KVANTORIUMModel.FK_KURS_USINIK">
-            <End Role="USINIK" EntitySet="USINIK" />
-            <End Role="KURS" EntitySet="KURS" />
-          </AssociationSet>
-        </EntityContainer>
         <Association Name="FK_KURS_USINIK">
-          <End Type="KVANTORIUMModel.USINIK" Role="USINIK" Multiplicity="1" />
-          <End Type="KVANTORIUMModel.KURS" Role="KURS" Multiplicity="*" />
+          <End Role="USINIK" Type="Self.USINIK" Multiplicity="1" />
+          <End Role="KURS" Type="Self.KURS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USINIK">
               <PropertyRef Name="IdUSINIK" />
@@ -143,12 +131,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="KVANTORIUMEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KURS" EntityType="Self.KURS" />
+          <EntitySet Name="PREPOD" EntityType="Self.PREPOD" />
+          <EntitySet Name="USINIK" EntityType="Self.USINIK" />
+          <AssociationSet Name="FK_KURS_PREPOD" Association="Self.FK_KURS_PREPOD">
+            <End Role="PREPOD" EntitySet="PREPOD" />
+            <End Role="KURS" EntitySet="KURS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KURS_USINIK" Association="Self.FK_KURS_USINIK">
+            <End Role="USINIK" EntitySet="USINIK" />
+            <End Role="KURS" EntitySet="KURS" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KVANTORIUMModelContainer" CdmEntityContainer="KVANTORIUMEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KVANTORIUMModelContainer" CdmEntityContainer="KVANTORIUMEntities2">
           <EntitySetMapping Name="KURS">
             <EntityTypeMapping TypeName="KVANTORIUMModel.KURS">
               <MappingFragment StoreEntitySet="KURS">

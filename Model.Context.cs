@@ -13,10 +13,10 @@ namespace KVANTORIUM
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KVANTORIUMEntities1 : DbContext
+    public partial class KVANTORIUMEntities2 : DbContext
     {
-        public KVANTORIUMEntities1()
-            : base("name=KVANTORIUMEntities1")
+        public KVANTORIUMEntities2()
+            : base("name=KVANTORIUMEntities2")
         {
         }
     

@@ -8,7 +8,7 @@ namespace KVANTORIUM
 {
     static class Program
     {
-        public static KVANTORIUMEntities1 BD = new KVANTORIUMEntities1();
+        public static KVANTORIUMEntities2 BD = new KVANTORIUMEntities2();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
